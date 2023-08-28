@@ -1,26 +1,17 @@
 <template>
-  <div class="home">
-    <div class="container">
-      <div class="card">
-        <div class="card-body">
-          首页
-        </div>
-      </div>
-    </div>
-  </div>
+  <ContentBase>
+    首页
+  </ContentBase>
 </template>
 
 <script>
+import ContentBase from "../components/ContentBase.vue";
 export default {
   name: 'HomeView',
   components: {
-
+    ContentBase,
   }
 }
 </script>
 
-<style scoped>
-.container {
-  margin-top: 20px;
-}
-</style>
+<style scoped></style>
