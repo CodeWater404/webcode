@@ -8,7 +8,11 @@
                 <div class="col-9">
                     <div class="username">{{ fullName }}</div>
                     <div class="fans">粉丝：{{ user.followerCount }}</div>
-                    <button type="button" class="btn btn-secondary btn-sm">+关注</button>
+                    <!-- v-on:click 可以简写为@click  -->
+                    <button @click="follow" v-if="!user.is_followed" type="button"
+                        class="btn btn-secondary btn-sm">+关注</button>
+                    <button @click="unfollow" v-if="user.is_followed" type="button"
+                        class="btn btn-secondary btn-sm">取消关注</button>
                 </div>
             </div>
         </div>
@@ -25,11 +29,23 @@ export default {
             required: true,
         },
     },
-    setup(props) {
+    // 子组件向父组件传递信息用context
+    setup(props, context) {
         // computed表示动态计算值
         let fullName = computed(() => props.user.lastName + " " + props.user.firstName);
+
+        const follow = () => {
+            context.emit("follow");
+        }
+
+        const unfollow = () => {
+            context.emit("unfollow");
+        }
+        // 这里必须要返回，返回了才可以在template里面使用
         return {
-            fullName
+            fullName,
+            follow,
+            unfollow,
         }
     }
 }
