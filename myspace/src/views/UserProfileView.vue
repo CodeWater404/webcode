@@ -1,11 +1,14 @@
+<!-- 用户动态页面 -->
 <template>
     <ContentBase>
         <div class="row">
             <div class="col-3">
                 <!-- 这是view父组件，userprofileinfo是子组件；这里父向子传递数据用v-bind，但是一般省略写法 -->
                 <!-- <UserProfileInfo v-bind:user="user" /> -->
-                <!-- @follow名称随便写，主要是子组件里面emit里面那里传过来的对应上就行 -->
+                <!-- @follow名称随便写，主要是子组件里面emit里面那里传过来的对应上就行; @绑定事件，：绑定属性 -->
                 <UserProfileInfo @follow="follow" @unfollow="unfollow" :user="user" />
+                <!-- post_a_post为一个事件，绑定js脚本中的post_a_post函数 -->
+                <UserProfileWrite @post_a_post="post_a_post" />
             </div>
             <div class="col-9">
                 <UserProfilePosts :posts="posts" />
@@ -18,16 +21,19 @@
 import ContentBase from "../components/ContentBase.vue";
 import UserProfileInfo from "../components/UserProfileInfo.vue";
 import UserProfilePosts from "../components/UserProfilePosts.vue";
+import UserProfileWrite from "../components/UserProfileWrite.vue";
 import { reactive } from "vue";
 export default {
-    name: 'UserProfileView',
+    name: 'UserList',
     components: {
         ContentBase,
         UserProfileInfo,
         UserProfilePosts,
+        UserProfileWrite,
     },
     //setup初始化函数
     setup() {
+        // 数据如果发生改边，reactive类型的会自动变化修改过的值
         const user = reactive({
             id: 1,
             username: "watercode",
@@ -65,19 +71,31 @@ export default {
             if (user.is_follow) return;
             user.is_followed = true;
             user.followerCount++
-        }
+        };
 
         const unfollow = () => {
             if (!user.is_followed) return;
             user.is_followed = false;
             user.followerCount--;
-        }
+        };
+
+        // 这里的参数content是子组件UserProfileWrite中传递过来的
+        const post_a_post = (content) => {
+            posts.count++;
+            // 在数组的开头加一个元素：最新的帖子在最上方
+            posts.posts.unshift({
+                id: posts.count,
+                userId: 1,
+                content: content,
+            })
+        };
 
         return {
             user,
             follow,
             unfollow,
             posts,
+            post_a_post,
         }
     }
 }

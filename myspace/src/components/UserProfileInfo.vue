@@ -1,3 +1,4 @@
+<!-- 用户动态，个人资料卡片模块 -->
 <template>
     <div class="card">
         <div class="card-body">

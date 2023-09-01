@@ -1,3 +1,4 @@
+<!-- 帖子列表模块 -->
 <template>
     <div class="card">
         <div class="card-body">
