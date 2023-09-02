@@ -33,4 +33,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 5. 注册
 6. 404页面
 
-
+# ajax
+使用ajax获取后端数据，需要安装`jquery`:
+```shell
+npm i jquery
+```

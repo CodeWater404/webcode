@@ -12,35 +12,42 @@ import UserProfileView from '../views/UserProfileView.vue';
 //路由，就是地址那里的地址
 const routes = [
   {
-    path: '/home',
+    path: '/',
     name: 'home',
     component: HomeView
   },
   {
-    path: '/login',
+    // 好习惯：链接后面以/结尾
+    path: '/login/',
     name: 'login',
     component: LoginView
   },
   {
-    path: '/notfound',
-    name: 'notfound',
+    path: '/404/',
+    name: '404',
     component: NotFoundView
   },
   {
-    path: '/register',
+    path: '/register/',
     name: 'register',
     component: RegisterView
   },
   {
-    path: '/userlist',
+    path: '/userlist/',
     name: 'userlist',
     component: UserListView
   },
   {
-    path: '/userprofile',
+    // :表示是一个链接上面的参数
+    path: '/userprofile/:userId/',
     name: 'userprofile',
     component: UserProfileView
   },
+  {
+    // 访问不存在的页面的是否会自动重定向到404
+    path:'/:catchAll(.*)',
+    redirect:'/404/'
+  }
 ]
 
 

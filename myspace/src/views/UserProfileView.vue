@@ -23,6 +23,8 @@ import UserProfileInfo from "../components/UserProfileInfo.vue";
 import UserProfilePosts from "../components/UserProfilePosts.vue";
 import UserProfileWrite from "../components/UserProfileWrite.vue";
 import { reactive } from "vue";
+import { useRoute } from "vue-router";
+
 export default {
     name: 'UserList',
     components: {
@@ -33,6 +35,11 @@ export default {
     },
     //setup初始化函数
     setup() {
+        // 从链接上获取参数
+        const route = useRoute();
+        const userId = route.params.userId;
+        console.log(userId);
+
         // 数据如果发生改边，reactive类型的会自动变化修改过的值
         const user = reactive({
             id: 1,
