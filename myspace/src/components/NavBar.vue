@@ -16,10 +16,6 @@
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{ name: 'userlist' }">好友列表</router-link>
                     </li>
-                    <li class="nav-item">
-                        <router-link class="nav-link"
-                            :to="{ name: 'userprofile', params: { userId: 2 } }">用户动态</router-link>
-                    </li>
                 </ul>
                 <!-- 如果不是登录的状态，显示登录页面 -->
                 <ul class="navbar-nav" v-if="!$store.state.user.is_login">

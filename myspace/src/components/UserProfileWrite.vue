@@ -13,17 +13,36 @@
 
 <script>
 import { ref } from 'vue';
+import $ from "jquery";
+import { useStore } from "vuex";
 
 export default {
     name: "UserProfileWrite",
     setup(props, context) {
+        const store = useStore();
         //存储非对象元素用ref
         let content = ref('');
         const post_a_post = () => {
             // context.emit可以触发父组件的事件;第二个参数为事件的参数
-            context.emit("post_a_post", content.value)
-            content.value = "";
-        }
+            // context.emit("post_a_post", content.value)
+            // content.value = "";
+            $.ajax({
+                url: "https://app165.acapp.acwing.com.cn/myspace/post/",
+                type: "POST",
+                data: {
+                    content: content.value,
+                },
+                headers: {
+                    "Authorization": "Bearer " + store.state.user.access,
+                },
+                success(resp) {
+                    if (resp.result === "success") {
+                        context.emit("post_a_post", content.value);
+                        content.value = "";
+                    }
+                },
+            });
+        };
 
         return {
             // 原本写法是content：content 这里名字都一样，可以缩写
