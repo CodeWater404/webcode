@@ -7,7 +7,7 @@
                     <img class="img-fluid" :src="user.photo" alt="">
                 </div>
                 <div class="col-9">
-                    <!-- <div class="username">{{ fullName }}</div> -->
+                    <div class="username">{{ user.username }}</div>
                     <div class="fans">粉丝：{{ user.followerCount }}</div>
                     <!-- v-on:click 可以简写为@click  -->
                     <button @click="follow" v-if="!user.is_followed" type="button"
@@ -22,6 +22,9 @@
 
 <script>
 // import { computed } from 'vue';
+import $ from "jquery";
+import { useStore } from "vuex";
+
 export default {
     name: "UserProfileInfo",
     props: {
@@ -34,21 +37,50 @@ export default {
     setup(props, context) {
         // computed表示动态计算值
         // let fullName = computed(() => props.user.lastName + " " + props.user.firstName);
+        const store = useStore();
 
         const follow = () => {
-            context.emit("follow");
-        }
+            $.ajax({
+                url: "https://app165.acapp.acwing.com.cn/myspace/follow/",
+                type: "POST",
+                data: {
+                    target_id: props.user.id,
+                },
+                headers: {
+                    "Authorization": "Bearer " + store.state.user.access,
+                },
+                success(resp) {
+                    if (resp.result === "success") {
+                        context.emit("follow");
+                    }
+                },
+            });
+        };
 
         const unfollow = () => {
-            context.emit("unfollow");
-        }
+            $.ajax({
+                url: "https://app165.acapp.acwing.com.cn/myspace/follow/",
+                type: "POST",
+                data: {
+                    target_id: props.user.id,
+                },
+                headers: {
+                    "Authorization": "Bearer " + store.state.user.access,
+                },
+                success(resp) {
+                    if (resp.result === "success") {
+                        context.emit("unfollow");
+                    }
+                },
+            });
+        };
         // 这里必须要返回，返回了才可以在template里面使用
         return {
             // fullName,
             follow,
             unfollow,
         }
-    }
+    },
 }
 </script>
 
