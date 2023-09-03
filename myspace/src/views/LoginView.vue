@@ -12,8 +12,8 @@
           <div class="mb-3">
             <label for="password" class="form-label">密码</label>
             <input v-model="password" type="password" class="form-control" id="password">
-            <div class="error-message">{{ error_message }}</div>
           </div>
+          <div class="error-message">{{ error_message }}</div>
 
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
