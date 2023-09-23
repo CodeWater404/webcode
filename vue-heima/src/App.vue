@@ -1,49 +1,26 @@
-<!-- 根组件 -->
-
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { reactive } from 'vue';
+import { ref } from 'vue';
+
+// reactive接收对象类型参数(不能是简单类型的！)，返回响应式对象
+const state = reactive({
+  count: 0
+})
+
+const setCount = () => {
+  state.count++
+}
+
+// ref接收基本类型和对象类型参数，返回响应式对象
+const state2 = ref(0)
+
+const setCount2 = () => {
+  //脚本区域修改ref产生的响应式对象数据必须通过.value属性！！！！
+  state2.value++
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <div><button @click="setCount">count1:{{ state.count }}</button></div>
+  <div><button @click="setCount2">count2:{{ state2 }}</button></div>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
