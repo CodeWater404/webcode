@@ -1,5 +1,5 @@
 # vue-heima
-> 该项目来自于[B站](https://www.bilibili.com/video/BV1Ac411K7EQ?p=3&vd_source=428d32ac5556a6a38659408b8c8fb403),仅用于学习。
+> 该项目来自于[B站](https://www.bilibili.com/video/BV1Ac411K7EQ?p=3&vd_source=428d32ac5556a6a38659408b8c8fb403),仅用于学习vue语法。
 >
 
 This template should help get you started developing with Vue 3 in Vite.
