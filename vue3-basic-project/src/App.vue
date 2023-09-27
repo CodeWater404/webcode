@@ -24,6 +24,15 @@ const onDeleted = async (id) => {
 
 
 // TODO: 编辑功能
+const editRef = ref(null)
+const openDialog = (item) => {
+  editRef.value.open(item)
+}
+
+//更新列表
+const updateList = () => {
+  getList()
+}
 
 </script>
 
@@ -35,13 +44,13 @@ const onDeleted = async (id) => {
       <el-table-column label="籍贯" prop="place"></el-table-column>
       <el-table-column label="操作" width="150">
         <template #default="{ row }">
-          <el-button type="primary" link>编辑</el-button>
+          <el-button type="primary" @click="openDialog(row)" link>编辑</el-button>
           <el-button type="danger" @click="onDeleted(row.id)" link>删除</el-button>
         </template>
       </el-table-column>
     </el-table>
   </div>
-  <Edit />
+  <Edit ref="editRef" @update-list="updateList" />
 </template>
 
 <style scoped>
