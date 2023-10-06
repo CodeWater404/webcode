@@ -50,6 +50,7 @@ const updateList = () => {
       </el-table-column>
     </el-table>
   </div>
+  <!-- ref绑定一个子组件的示例，这里对应到 editRef变量上 -->
   <Edit ref="editRef" @update-list="updateList" />
 </template>
 
