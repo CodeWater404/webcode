@@ -1,6 +1,9 @@
 //导入一个方法 defineStore
 import {defineStore} from 'pinia'
-import {ref} from 'vue'
+import {ref , computed} from 'vue'
+import axios from 'axios'
+
+const API_URL = 'http://geek.itheima.net/v1_0/channels'
 
 export const useCounterStore = defineStore('counter' , () => {
     //定义数据 state
@@ -9,9 +12,23 @@ export const useCounterStore = defineStore('counter' , () => {
     const increment = () => {
         count.value++
     }
+
+    //getter定义
+    const doubleCount = computed(() => count.value * 2)
+
+    // 定义异步action
+    const list = ref([])
+    const getList = async () => {
+        const res = await axios.get(API_URL)
+        list.value = res.data.data.channels
+    }
+
     // 以对象的方式return供组件使用
     return {
         count,
-        increment
+        increment,
+        doubleCount,
+        list,
+        getList
     }
 })
