@@ -13,6 +13,10 @@ export const useCounterStore = defineStore('counter' , () => {
         count.value++
     }
 
+    const test = () => {
+        console.log("test")
+    }
+
     //getter定义
     const doubleCount = computed(() => count.value * 2)
 
@@ -29,6 +33,7 @@ export const useCounterStore = defineStore('counter' , () => {
         increment,
         doubleCount,
         list,
-        getList
+        getList,
+        test
     }
 })
