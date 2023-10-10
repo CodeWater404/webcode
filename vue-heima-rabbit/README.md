@@ -34,3 +34,21 @@ npm run build
 ```sh
 npm run lint
 ```
+
+## 目录介绍
+```
+./src/
+|-- ─ App.vue              
+|-- ─ apis              api接口文件夹
+|-- ─ assets            
+|-- ─ components        组件文件夹
+|-- ─ composables       组合函数文件夹
+|-- ─ directives        全局指令文件夹
+|-- ─ main.js    
+|-- ─ router            
+|-- ─ stores            
+|-- ─ styles            全局样式文件夹
+|-- ─ utils             工具函数文件夹
+`-- ─ views             视图文件夹
+
+```
