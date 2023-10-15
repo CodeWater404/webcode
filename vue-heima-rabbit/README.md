@@ -52,3 +52,7 @@ npm run lint
 `-- ─ views             视图文件夹
 
 ```
+
+## axios基础封装图示
+![Alt text](./attch/image.png)
+
