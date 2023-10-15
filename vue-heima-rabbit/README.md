@@ -56,3 +56,8 @@ npm run lint
 ## axios基础封装图示
 ![Alt text](./attch/image.png)
 
+
+## 路由设计
+![Alt text](./attach/image-2.png)
+![Alt text](./attach/image-3.png)    
+
