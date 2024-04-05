@@ -1,0 +1,46 @@
+<!-- 
+导航：1. html基础标签
+编写一个完整的 HTML 页面。
+
+页面中包含一个有序列表：
+
+列表第一项只包含一个文本，内容为：第一讲
+列表第二项包含：
+一个文本，内容为：第二讲
+一个无序列表，包含3项，均为文本，内容分别为：第一小节、第二小节、第三小节。
+列表第三项包含：
+一个文本，内容为：第三讲
+一个有序列表，包含3项，均为文本，内容分别为：第一小节、第二小节、第三小节。
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ol>
+        <li>第一讲</li>
+        <li>第二讲
+            <ul>
+                <li>第一小节</li>
+                <li>第二小节</li>
+                <li>第三小节</li>
+            </ul>
+        </li>
+        <li>
+            第三讲
+            <ol>
+                <li>第一小节</li>
+                <li>第二小节</li>
+                <li>第三小节</li>
+            </ol>
+        </li>
+    </ol>
+</body>
+
+</html>
