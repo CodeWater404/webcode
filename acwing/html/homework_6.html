@@ -1,0 +1,87 @@
+<!-- 
+    编写一个完整的 HTML 页面。
+
+页面中包含一个表单，表单的action为/login.html，表单中的内容从前到后依次为：
+
+一个text类型的input标签。
+    name为：username
+    id为：username
+    具有required属性
+    minlength为：3
+    maxlength为：15
+    placeholder为：用户名
+    label的文本为：用户名
+一个number类型的input标签。
+    name为：age
+    id为：age
+    具有required属性
+    placeholder为：年龄
+    label的文本为：年龄
+一个email类型的input标签
+    name为：email
+    id为：email
+    具有required属性
+    placeholder为：邮箱
+    label的文本为：邮箱
+一个password类型的input标签
+    name为：password
+    id为：password
+    具有required属性
+    placeholder为：密码
+    label的文本为：密码
+一个textarea标签
+    name为：resume
+    id为：resume
+    没有required标签
+    placeholder为：个人简介
+    label的文本为：个人简介
+一个select标签
+    name为：lang
+    id为：lang
+    label的文本为：语言
+    第一个option：value为Cpp，文本为：Cpp
+    第二个option：value为Java，文本为：Java
+    第三个option：value为Python，文本为：Python
+一个按钮
+    type为submit
+    文本为：提交
+
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/login.html">
+        <label for="username">用户名</label>
+        <input type="text" name="username" id="username" required minlength="3" maxlength="15" placeholder="用户名">
+
+        <label for="age">年龄</label>
+        <input type="number" name="age" id="age" required placeholder="年龄">
+
+        <label for="email">邮箱</label>
+        <input type="email" name="email" id="email" required placeholder="邮箱">
+
+        <label for="password">密码</label>
+        <input type="password" name="password" id="password" required placeholder="密码">
+
+        <label for="resume">个人简介</label>
+        <textarea name="resume" id="resume" cols="30" rows="10" placeholder="个人简介"></textarea>
+
+        <label for="lang">语言</label>
+        <select name="lang" id="lang">
+            <option value="cpp">Cpp</option>
+            <option value="java">java</option>
+            <option value="python">python</option>
+        </select>
+
+        <button type="submit">提交</button>
+    </form>
+</body>
+
+</html>
