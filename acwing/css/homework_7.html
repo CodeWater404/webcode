@@ -1,0 +1,79 @@
+<!-- 编写一个完整的HTML页面，标签内容为：
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            background-color: lightsalmon;
+        }
+
+        div:nth-child(1) {
+            margin: 10px 20px 30px 40px;
+            padding: 10px 20px 30px 40px;
+        }
+
+        div:nth-child(2) {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>文本1</div>
+    <div>文本2</div>
+</body>
+
+</html>
+ -->
+<!-- 
+要求
+所有div标签满足：
+宽度和高度均为300px；
+内边距与外边距均为10px；
+背景颜色为lightblue；
+边框样式为solid 10px gray；
+第一个div为内容盒子模型。
+第二个div为边框盒子模型。
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            padding: 10px;
+            margin: 10px;
+            background-color: lightblue;
+            border: solid 10px gray;
+        }
+
+        div:nth-child(1) {
+            box-sizing: content-box;
+        }
+
+        div:nth-child(2) {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div>文本1</div>
+    <div>文本2</div>
+</body>
+
+</html>
